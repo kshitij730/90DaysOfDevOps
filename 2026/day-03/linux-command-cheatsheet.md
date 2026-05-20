@@ -9,9 +9,9 @@
 | `kill <PID>` | Stop a process by its ID |
 | `kill -9 <PID>` | Force kill a process (cannot be ignored) |
 | `pgrep nginx` | Find PID of a process by name |
-| `jobs` | List background jobs in current shell |
 | `Ctrl + Z` | Pause a running process |
 | `bg` | Resume a paused process in background |
+| `fg` | Bring background process back to foreground |
 
 ---
 
@@ -23,7 +23,7 @@
 | `ls -la` | List files with details and hidden files |
 | `cd /etc` | Navigate to a directory |
 | `mkdir myfolder` | Create a new directory |
-| `rm -rf myfolder` | Delete a folder and everything inside it |
+| `rm -rf myfolder` | Delete a folder and everything inside (careful!) |
 | `cp file1 file2` | Copy a file |
 | `mv file1 file2` | Move or rename a file |
 | `cat file.txt` | Print file contents to terminal |
@@ -31,6 +31,8 @@
 | `grep "error" file.txt` | Search for a word inside a file |
 | `find / -name "nginx.conf"` | Search for a file by name |
 | `chmod 755 script.sh` | Change file permissions |
+| `whoami` | Show current logged in user |
+| `free -h` | Show RAM usage in human readable format |
 
 ---
 
@@ -38,24 +40,32 @@
 
 | Command | What it does |
 |---------|-------------|
-| `ping google.com` | Check if a host is reachable |
-| `ip addr` | Show network interfaces and IP addresses |
-| `curl http://localhost:8080` | Make an HTTP request from terminal |
-| `dig google.com` | DNS lookup for a domain |
+| `cat /etc/hosts` | View hostname to IP mappings |
+| `cat /etc/resolv.conf` | View DNS server config |
+| `curl http://localhost:8080` | Make HTTP request to a local service |
+
+> Note: Commands like `ping`, `ip`, `ss`, `dig` may not be available in restricted sandboxes.  
+> On a real server/VM these work fine: `ping google.com`, `ip addr`, `ss -tulnp`
 
 ---
 
 ## Quick Reference
 
 ```bash
-# Find what is using port 8080
-ss -tulnp | grep 8080
-
 # Check disk space
 df -h
 
-# Check memory usage
-free -h
+# See who is logged in
+whoami
+
+# Read a file
+cat filename.txt
+
+# Create an empty file
+touch newfile.txt
+
+# See last 10 lines of a file
+tail -10 filename.txt
 ```
 
 ---
