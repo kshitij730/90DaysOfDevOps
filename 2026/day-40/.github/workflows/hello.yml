@@ -1,4 +1,4 @@
-name: Hello GitHub Actions
+name: My First GitHub Action
 
 on:
   push:
@@ -9,19 +9,19 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
-      - name: Print Greeting
+      - name: Print Hello Message
         run: echo "Hello from GitHub Actions!"
 
       - name: Show Date and Time
         run: date
 
-      - name: Show Current Branch
-        run: echo "Branch: ${{ github.ref_name }}"
+      - name: Show Branch Name
+        run: echo "[master]"
 
       - name: List Repository Files
         run: ls -la
 
-      - name: Display Runner OS
-        run: echo "Runner OS: $RUNNER_OS"
+      - name: Show Runner OS
+        run: echo "Runner OS"
