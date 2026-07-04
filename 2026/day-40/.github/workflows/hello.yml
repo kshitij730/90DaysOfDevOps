@@ -1,4 +1,3 @@
-# This is my hello workflow file for GitHub Actions. It will run on every push to the repository and perform a series of steps to greet the user, show the current date and time, display the current branch name, list the files in the repository, and show the operating system of the runner.
 name: Hello GitHub Actions
 
 on:
@@ -9,7 +8,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-
       - name: Checkout Repository
         uses: actions/checkout@v4
 
