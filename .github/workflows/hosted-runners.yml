@@ -1,0 +1,64 @@
+name: GitHub Hosted Runners
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  ubuntu:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: OS Information
+        run: |
+          echo "Operating System:"
+          uname -a
+
+      - name: Hostname
+        run: hostname
+
+      - name: Current User
+        run: whoami
+
+      - name: Installed Software
+        run: |
+          docker --version
+          python3 --version
+          node --version
+          git --version
+
+  windows:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: OS Information
+        shell: powershell
+        run: systeminfo | findstr /B /C:"OS Name"
+
+      - name: Hostname
+        shell: powershell
+        run: hostname
+
+      - name: Current User
+        shell: powershell
+        run: whoami
+
+  macos:
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: OS Information
+        run: uname -a
+
+      - name: Hostname
+        run: hostname
+
+      - name: Current User
+        run: whoami
