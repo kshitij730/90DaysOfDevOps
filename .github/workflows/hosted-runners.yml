@@ -3,7 +3,7 @@ name: GitHub Hosted Runners
 on:
   push:
     branches:
-      - main
+      - masters
 
 jobs:
   ubuntu:
