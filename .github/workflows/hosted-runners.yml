@@ -3,19 +3,17 @@ name: GitHub Hosted Runners
 on:
   push:
     branches:
-      - masters
+      - master   # ya main
 
 jobs:
   ubuntu:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: OS Information
-        run: |
-          echo "Operating System:"
-          uname -a
+        run: uname -a
 
       - name: Hostname
         run: hostname
@@ -29,7 +27,6 @@ jobs:
           python3 --version
           node --version
           git --version
-
   windows:
     runs-on: windows-latest
 
